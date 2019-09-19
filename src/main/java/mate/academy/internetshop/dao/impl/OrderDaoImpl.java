@@ -1,0 +1,50 @@
+package mate.academy.internetshop.dao.impl;
+
+import mate.academy.internetshop.dao.OrderDao;
+import mate.academy.internetshop.db.Storage;
+import mate.academy.internetshop.lib.Dao;
+import mate.academy.internetshop.model.Order;
+
+import java.util.NoSuchElementException;
+
+@Dao
+public class OrderDaoImpl implements OrderDao {
+
+    private OrderDaoImpl() {
+    }
+
+    private static OrderDaoImpl orderDao = new OrderDaoImpl();
+
+    public static OrderDaoImpl getInstance() {
+        return orderDao;
+    }
+
+    @Override
+    public Order add(Order order) {
+        Storage.orders.add(order);
+        return order;
+    }
+
+    @Override
+    public Order get(Long id) {
+        return Storage.orders.stream()
+                .filter(element -> element.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException(
+                        "Can't find order with id " + id));
+    }
+
+    @Override
+    public Order update(Order newOrder) {
+        Order order = get(newOrder.getId());
+        order.setItems(newOrder.getItems());
+        order.setUser(newOrder.getUser());
+        return order;
+    }
+
+    @Override
+    public void delete(Long id) {
+        Storage.orders
+                .removeIf(order -> order.getId().equals(id));
+    }
+}
