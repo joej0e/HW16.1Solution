@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class CheckoutController extends HttpServlet {
-    private static final Long SESSION_USER_ID = 0L;
     @Inject
     private static BucketService bucketService;
     @Inject
@@ -29,12 +28,13 @@ public class CheckoutController extends HttpServlet {
         Bucket bucket = bucketService.get(Long.parseLong(
                 req.getParameter("bucket_id")));
         if (bucket.getItems().size() != 0) {
-            User user = userService.get(SESSION_USER_ID);
+            Long userId = (Long) req.getSession(true).getAttribute("userId");
+            User user = userService.get(userId);
             Order order = new Order(bucket.getItems(), user);
             orderService.add(order);
             user.getOrders().add(order);
             bucketService.clear(bucket);
         }
-        resp.sendRedirect(req.getContextPath() + "/showAllOrders");
+        resp.sendRedirect(req.getContextPath() + "/servlet/showAllOrders");
     }
 }

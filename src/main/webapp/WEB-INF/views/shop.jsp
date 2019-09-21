@@ -29,11 +29,11 @@
         <tr>
             <td>${item.name}</td>
             <td>${item.price}</td>
-            <td><a href="addToBucket?item_id=${item.id}">&#43;</a></td>
+            <td><a href="/internetshop_war_exploded/servlet/addToBucket?item_id=${item.id}">&#43;</a></td>
         </tr>
     </c:forEach>
 </table>
 <br>
-<a href="bucket">Bucket&#8594;</a>
+<a href="/internetshop_war_exploded/servlet/bucket">Bucket&#8594;</a>
 </body>
 </html>

@@ -59,7 +59,7 @@
             </tr>
         </table>
     </div>
-    <a href="users">Users</a><br>
+    <a href="/internetshop_war_exploded/servlet/users">Users</a><br>
 
 </form>
 </body>

@@ -30,7 +30,7 @@
         </tr>
     </c:forEach>
 </table>
-<a href="shop">Shop&#8594;</a>
+<a href="/internetshop_war_exploded/shop">Shop&#8594;</a>
 
 </body>
 </html>

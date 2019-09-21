@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class CartController extends HttpServlet {
-    private static final Long SESSION_USER_ID = 0L;
     @Inject
     private static BucketService bucketService;
     @Inject
@@ -23,7 +22,8 @@ public class CartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        User user = userService.get(SESSION_USER_ID);
+        Long userId = (Long) req.getSession(true).getAttribute("userId");
+        User user = userService.get(userId);
         Bucket bucket = bucketService.get(user.getBucket().getId());
         req.setAttribute("user", user);
         req.setAttribute("bucket", bucket);
@@ -31,6 +31,6 @@ public class CartController extends HttpServlet {
                 .mapToDouble(Item::getPrice)
                 .sum();
         req.setAttribute("amount", amount);
-        req.getRequestDispatcher("WEB-INF/views/bucket.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/bucket.jsp").forward(req, resp);
     }
 }

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class GetAllOrdersController extends HttpServlet {
-    private static final Long SESSION_USER_ID = 0L;
     @Inject
     private static UserService userService;
     @Inject
@@ -21,9 +20,10 @@ public class GetAllOrdersController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        User user = userService.get(SESSION_USER_ID);
+        Long userId = (Long) req.getSession(true).getAttribute("userId");
+        User user = userService.get(userId);
         req.setAttribute("user", user);
         req.setAttribute("orders", user.getOrders());
-        req.getRequestDispatcher("WEB-INF/views/orders.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/orders.jsp").forward(req, resp);
     }
 }

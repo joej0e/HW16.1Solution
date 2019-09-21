@@ -24,6 +24,6 @@ public class DeleteFromCartController extends HttpServlet {
                 req.getParameter("item_id")));
         bucketService.deleteItem(Long.parseLong(
                 req.getParameter("bucket_id")), item);
-        resp.sendRedirect(req.getContextPath() + "/bucket");
+        resp.sendRedirect(req.getContextPath() + "/servlet/bucket");
     }
 }

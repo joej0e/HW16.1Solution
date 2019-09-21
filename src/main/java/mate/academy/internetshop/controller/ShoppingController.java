@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class ShoppingController extends HttpServlet {
-    private static final Long SESSION_USER_ID = 0L;
     @Inject
     private static UserService userService;
     @Inject
@@ -24,12 +23,13 @@ public class ShoppingController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         if (userService.getAll().size() == 0) {
-            req.getRequestDispatcher("WEB-INF/views/index.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
         }
-        User user = userService.get(SESSION_USER_ID);
+        Long userId = (Long) req.getSession(true).getAttribute("userId");
+        User user = userService.get(userId);
         List<Item> items = itemService.getAll();
         req.setAttribute("user", user);
         req.setAttribute("items", items);
-        req.getRequestDispatcher("WEB-INF/views/shop.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/shop.jsp").forward(req, resp);
     }
 }

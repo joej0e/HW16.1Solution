@@ -34,7 +34,7 @@
             <td>${user.surname}</td>
             <td>${user.login}</td>
             <td>${user.password}</td>
-            <td><a href="deleteUser?user_id=${user.id}">Delete</a></td>
+            <td><a href="/internetshop_war_exploded/servlet/deleteUser?user_id=${user.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -28,18 +28,19 @@
         <tr>
             <td>${item.name}</td>
             <td>${item.price}</td>
-            <td><a href="deleteFromBucket?bucket_id=${bucket.id}&item_id=${item.id}">Delete</a></td>
+            <td><a href="/internetshop_war_exploded/servlet/deleteFromBucket?bucket_id=${bucket.id}&item_id=${item.id}">Delete</a>
+            </td>
         </tr>
     </c:forEach>
     <tr>
         <td>Amount</td>
         <td>${amount}</td>
-        <td><a href="completeOrder?bucket_id=${bucket.id}">Checkout</a></td>
+        <td><a href="/internetshop_war_exploded/servlet/completeOrder?bucket_id=${bucket.id}">Checkout</a></td>
     </tr>
 </table>
 <br>
-<a href="shop">Shop&#8594;</a>
+<a href="/internetshop_war_exploded/shop">Shop&#8594;</a>
 <br>
-<a href="showAllOrders">Orders&#8594;</a>
+<a href="/internetshop_war_exploded/servlet/showAllOrders">Orders&#8594;</a>
 </body>
 </html>

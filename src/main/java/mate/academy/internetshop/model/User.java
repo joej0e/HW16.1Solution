@@ -11,8 +11,18 @@ public class User {
     private String surname;
     private String login;
     private String password;
+    private String token;
     private List<Order> orders;
     private Bucket bucket;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
 
     public User() {
         id = UserIdGenerator.generateId();
