@@ -1,9 +1,11 @@
 package mate.academy.internetshop.service.impl;
 
+import mate.academy.internetshop.dao.BucketDao;
 import mate.academy.internetshop.dao.OrderDao;
 import mate.academy.internetshop.dao.UserDao;
 import mate.academy.internetshop.lib.Inject;
 import mate.academy.internetshop.lib.Service;
+import mate.academy.internetshop.model.Bucket;
 import mate.academy.internetshop.model.Item;
 import mate.academy.internetshop.model.Order;
 import mate.academy.internetshop.model.User;
@@ -28,6 +30,8 @@ public class OrderServiceImpl implements OrderService {
     private static OrderDao orderDao;
     @Inject
     private static UserDao userDao;
+    @Inject
+    private static BucketDao bucketDao;
 
     @Override
     public Order add(Order order) {
@@ -55,7 +59,8 @@ public class OrderServiceImpl implements OrderService {
         Order order = new Order(itemsCopy, user);
         orderDao.add(order);
         userDao.get(user.getId()).getOrders().add(order);
-        userDao.get(user.getId()).getBucket().getItems().clear();
+        Bucket bucket = bucketDao.get(user.getBucketId());
+        bucket.getItems().clear();
         return order;
     }
 }

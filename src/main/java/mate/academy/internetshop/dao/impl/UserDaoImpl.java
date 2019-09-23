@@ -39,7 +39,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User update(User newUser) {
         User user = get(newUser.getId());
-        user.setBucket(newUser.getBucket());
+        user.setBucketId(newUser.getBucketId());
         user.setOrders(newUser.getOrders());
         return user;
     }

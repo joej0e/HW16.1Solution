@@ -1,7 +1,9 @@
 package mate.academy.internetshop.controller;
 
 import mate.academy.internetshop.lib.Inject;
+import mate.academy.internetshop.model.Bucket;
 import mate.academy.internetshop.model.User;
+import mate.academy.internetshop.service.BucketService;
 import mate.academy.internetshop.service.UserService;
 
 import javax.servlet.ServletException;
@@ -13,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class RegisterController extends HttpServlet {
+    @Inject
+    private static BucketService bucketService;
     @Inject
     private static UserService userService;
 
@@ -30,7 +34,10 @@ public class RegisterController extends HttpServlet {
         user.setSurname(req.getParameter("surname"));
         user.setLogin(req.getParameter("login"));
         user.setPassword(req.getParameter("psw"));
+        Bucket bucket = bucketService.add(new Bucket(user));
+        user.setBucketId(bucket.getId());
         User newUser = userService.add(user);
+
 
         HttpSession session = req.getSession();
         session.setAttribute("userId", user.getId());
