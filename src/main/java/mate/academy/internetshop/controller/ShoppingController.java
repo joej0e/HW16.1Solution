@@ -33,3 +33,4 @@ public class ShoppingController extends HttpServlet {
         req.getRequestDispatcher("/WEB-INF/views/shop.jsp").forward(req, resp);
     }
 }
+

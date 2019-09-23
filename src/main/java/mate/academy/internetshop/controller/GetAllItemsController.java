@@ -20,3 +20,4 @@ public class GetAllItemsController extends HttpServlet {
         req.getRequestDispatcher("/WEB-INF/views/items.jsp").forward(req, resp);
     }
 }
+
