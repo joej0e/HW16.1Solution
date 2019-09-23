@@ -22,3 +22,4 @@ public interface BucketService {
 
     void deleteItem(Long bucketId, Item item);
 }
+

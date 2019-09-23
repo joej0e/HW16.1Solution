@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AddToCartController extends HttpServlet {
-    private static final Long SESSION_USER_ID = 0L;
     @Inject
     private static ItemService itemService;
     @Inject
@@ -34,3 +33,5 @@ public class AddToCartController extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/shop");
     }
 }
+
+

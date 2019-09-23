@@ -48,3 +48,4 @@ public class BucketDaoImpl implements BucketDao {
                 .removeIf(bucket -> bucket.getId().equals(id));
     }
 }
+

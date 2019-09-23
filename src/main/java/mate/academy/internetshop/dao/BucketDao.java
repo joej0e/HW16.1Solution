@@ -11,3 +11,4 @@ public interface BucketDao {
 
     void delete(Long id);
 }
+

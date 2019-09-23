@@ -21,3 +21,4 @@ public interface UserDao {
 
     User login(String login, String password) throws AuthenticationException;
 }
+

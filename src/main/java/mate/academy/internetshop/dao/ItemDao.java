@@ -17,3 +17,4 @@ public interface ItemDao {
 
     List<Item> getAll();
 }
+

@@ -27,3 +27,4 @@ public class GetAllOrdersController extends HttpServlet {
         req.getRequestDispatcher("/WEB-INF/views/orders.jsp").forward(req, resp);
     }
 }
+
