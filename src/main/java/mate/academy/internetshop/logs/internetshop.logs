@@ -116,3 +116,4 @@
 2019-09-21 21:31:35 INFO  AuthenticationFilter:44 - User dd was authenticated!
 2019-09-21 21:31:38 INFO  AuthenticationFilter:44 - User dd was authenticated!
 2019-09-21 21:31:39 INFO  AuthenticationFilter:44 - User dd was authenticated!
+2019-09-23 13:56:28 INFO  InjectInitializer:15 - Dependency injection started...
