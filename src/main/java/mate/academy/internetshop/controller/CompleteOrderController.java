@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class CheckoutController extends HttpServlet {
+public class CompleteOrderController extends HttpServlet {
     @Inject
     private static BucketService bucketService;
     @Inject
