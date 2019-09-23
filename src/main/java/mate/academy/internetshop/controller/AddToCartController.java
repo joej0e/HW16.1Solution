@@ -33,5 +33,3 @@ public class AddToCartController extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/shop");
     }
 }
-
-

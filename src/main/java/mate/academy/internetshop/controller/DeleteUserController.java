@@ -21,4 +21,3 @@ public class DeleteUserController extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/servlet/users");
     }
 }
-

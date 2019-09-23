@@ -20,4 +20,3 @@ public class GetAllUsersController extends HttpServlet {
         req.getRequestDispatcher("/WEB-INF/views/users.jsp").forward(req, resp);
     }
 }
-

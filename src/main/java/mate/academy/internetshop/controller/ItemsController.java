@@ -29,6 +29,3 @@ public class ItemsController extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/addItems");
     }
 }
-
-
-

@@ -27,6 +27,3 @@ public class DeleteFromCartController extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/servlet/bucket");
     }
 }
-
-
-

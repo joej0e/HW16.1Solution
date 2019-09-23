@@ -40,4 +40,3 @@ public class RegisterController extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/shop");
     }
 }
-

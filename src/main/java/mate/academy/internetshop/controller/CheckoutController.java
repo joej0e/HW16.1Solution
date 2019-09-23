@@ -38,6 +38,3 @@ public class CheckoutController extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/servlet/showAllOrders");
     }
 }
-
-
-
