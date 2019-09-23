@@ -37,3 +37,4 @@
 <a href="/internetshop_war_exploded/servlet/bucket">Bucket&#8594;</a>
 </body>
 </html>
+
