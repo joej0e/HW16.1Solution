@@ -24,7 +24,8 @@ public class CartController extends HttpServlet {
             throws ServletException, IOException {
         Long userId = (Long) req.getSession(true).getAttribute("userId");
         User user = userService.get(userId);
-        Bucket bucket = bucketService.get(user.getBucket().getId());
+        Bucket bucket = bucketService
+                .get(userService.get(userId).getBucketId());
         req.setAttribute("user", user);
         req.setAttribute("bucket", bucket);
         double amount = bucket.getItems().stream()
