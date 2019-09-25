@@ -24,8 +24,8 @@ public class ItemServiceImpl implements ItemService {
     private static ItemDao itemDao;
 
     @Override
-    public Item add(Item item) {
-        return itemDao.add(item);
+    public Item create(Item item) {
+        return itemDao.create(item);
     }
 
     @Override
@@ -35,7 +35,8 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item update(Item item) {
-        return itemDao.update(item);
+        itemDao.update(item);
+        return item;
     }
 
     @Override
@@ -43,10 +44,6 @@ public class ItemServiceImpl implements ItemService {
         itemDao.delete(id);
     }
 
-    @Override
-    public void delete(Item item) {
-        itemDao.delete(item);
-    }
 
     @Override
     public List<Item> getAll() {

@@ -21,7 +21,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public Item add(Item item) {
+    public Item create(Item item) {
         Storage.items.add(item);
         return item;
     }
@@ -46,12 +46,6 @@ public class ItemDaoImpl implements ItemDao {
     public void delete(Long id) {
         Storage.items
                 .removeIf(item -> item.getId().equals(id));
-    }
-
-    @Override
-    public void delete(Item item) {
-        Storage.items
-                .removeIf(element -> element.equals(item));
     }
 
     @Override

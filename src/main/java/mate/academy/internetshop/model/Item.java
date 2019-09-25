@@ -7,19 +7,25 @@ public class Item {
     private String name;
     private Double price;
 
+    public Item(Long id, String name, Double price) {
+        this(name, price);
+        this.id = id;
+    }
+
     public Item(String name, Double price) {
-        this.id = ItemIdGenerator.generateId();
         this.name = name;
         this.price = price;
     }
 
-    public Long getId() {
-        return id;
+    public Item(Long id) {
+
     }
 
     public String getName() {
         return name;
     }
+
+    public Long getId() { return id; }
 
     public void setName(String name) {
         this.name = name;
