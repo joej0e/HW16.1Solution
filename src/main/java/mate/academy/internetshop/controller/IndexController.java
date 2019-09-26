@@ -18,10 +18,10 @@ public class IndexController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        itemService.update(new Item(12L, "sobaka", 32.));
         itemService.create(new Item("zebra", 45.));
-        itemService.get(13L);
-        itemService.delete(9L);
+        itemService.get(42L);
+        itemService.update(new Item(42L, "zebra", 96.));
+        itemService.delete(42L);
         req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
     }
 }
