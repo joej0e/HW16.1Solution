@@ -163,3 +163,472 @@
 2019-09-24 15:18:40 INFO  InjectInitializer:15 - Dependency injection started...
 2019-09-24 15:18:55 INFO  AuthenticationFilter:49 - User was not authenticated!
 2019-09-24 15:19:13 INFO  AuthenticationFilter:43 - User bob was authenticated!
+2019-09-26 13:23:19 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 13:23:29 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 13:23:42 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 13:23:44 DEBUG IndexController:25 - Item from DB = Item{id=null, name='zebra', price=45.0}
+2019-09-26 13:31:19 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 13:31:24 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 13:31:37 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 13:31:37 DEBUG IndexController:25 - Item from DB = Item{id=null, name='zebra', price=45.0}
+2019-09-26 13:35:50 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 13:35:56 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 13:36:08 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 13:36:08 DEBUG IndexController:25 - Item from DB = Item{id=null, name='zebra', price=45.0}
+2019-09-26 13:36:38 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 13:36:43 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 13:36:54 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 13:37:05 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 13:46:44 DEBUG IndexController:25 - Item from DB = Item{id=null, name='zebra', price=45.0}
+2019-09-26 13:46:44 DEBUG IndexController:25 - Item from DB = Item{id=null, name='zebra', price=45.0}
+2019-09-26 13:47:15 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 13:47:22 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 13:47:35 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 13:47:44 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 13:47:46 WARN  ItemDaoJdbcImpl:39 - Can't create item = zebra
+2019-09-26 13:58:26 WARN  ItemDaoJdbcImpl:39 - Can't create item = zebra
+2019-09-26 13:58:57 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 13:59:03 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 13:59:14 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 13:59:24 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:00:54 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:01:03 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:01:13 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:07:04 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:07:09 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:07:20 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:07:24 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:08:43 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:08:49 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:09:00 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:25:10 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:25:15 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:25:25 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:25:36 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:25:37 DEBUG IndexController:25 - Item from DB = Item{id=null, name='zebra', price=45.0}
+2019-09-26 14:25:46 DEBUG IndexController:25 - Item from DB = Item{id=null, name='zebra', price=45.0}
+2019-09-26 14:30:55 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:31:00 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:31:10 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:31:21 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:31:30 DEBUG IndexController:25 - Item from DB = Item{id=58, name='zebra', price=45.0}
+2019-09-26 14:31:30 DEBUG IndexController:25 - Item from DB = Item{id=59, name='zebra', price=45.0}
+2019-09-26 14:31:38 ERROR ItemDaoJdbcImpl:83 - Can't add new item
+java.sql.SQLException: Parameter index out of range (3 > number of parameters, which is 2).
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1365)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1378)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setDouble(ClientPreparedStatement.java:1554)
+	at mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl.update(ItemDaoJdbcImpl.java:79)
+	at mate.academy.internetshop.service.impl.ItemServiceImpl.update(ItemServiceImpl.java:38)
+	at mate.academy.internetshop.controller.IndexController.doGet(IndexController.java:27)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.processAuthenticated(AuthorizationFilter.java:113)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.doFilter(AuthorizationFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthenticationFilter.doFilter(AuthenticationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-09-26 14:34:46 DEBUG IndexController:28 - Updated item = Item{id=58, name='zebra', price=111000.0}
+2019-09-26 14:34:46 ERROR ItemDaoJdbcImpl:83 - Can't add new item
+java.sql.SQLException: Parameter index out of range (3 > number of parameters, which is 2).
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1365)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1378)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setDouble(ClientPreparedStatement.java:1554)
+	at mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl.update(ItemDaoJdbcImpl.java:79)
+	at mate.academy.internetshop.service.impl.ItemServiceImpl.update(ItemServiceImpl.java:38)
+	at mate.academy.internetshop.controller.IndexController.doGet(IndexController.java:27)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.processAuthenticated(AuthorizationFilter.java:113)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.doFilter(AuthorizationFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthenticationFilter.doFilter(AuthenticationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-09-26 14:34:46 DEBUG IndexController:28 - Updated item = Item{id=59, name='zebra', price=111000.0}
+2019-09-26 14:35:09 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:35:15 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:35:25 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:35:29 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:35:32 DEBUG IndexController:25 - Item from DB = Item{id=61, name='zebra', price=45.0}
+2019-09-26 14:35:35 ERROR ItemDaoJdbcImpl:82 - Can't add new item
+java.sql.SQLException: Parameter index out of range (3 > number of parameters, which is 2).
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1365)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1378)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setLong(ClientPreparedStatement.java:1573)
+	at mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl.update(ItemDaoJdbcImpl.java:78)
+	at mate.academy.internetshop.service.impl.ItemServiceImpl.update(ItemServiceImpl.java:38)
+	at mate.academy.internetshop.controller.IndexController.doGet(IndexController.java:27)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.processAuthenticated(AuthorizationFilter.java:113)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.doFilter(AuthorizationFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthenticationFilter.doFilter(AuthenticationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-09-26 14:35:35 DEBUG IndexController:25 - Item from DB = Item{id=60, name='zebra', price=45.0}
+2019-09-26 14:35:35 DEBUG IndexController:28 - Updated item = Item{id=61, name='zebra', price=111000.0}
+2019-09-26 14:38:27 ERROR ItemDaoJdbcImpl:82 - Can't add new item
+java.sql.SQLException: Parameter index out of range (3 > number of parameters, which is 2).
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1365)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1378)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setLong(ClientPreparedStatement.java:1573)
+	at mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl.update(ItemDaoJdbcImpl.java:78)
+	at mate.academy.internetshop.service.impl.ItemServiceImpl.update(ItemServiceImpl.java:38)
+	at mate.academy.internetshop.controller.IndexController.doGet(IndexController.java:27)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.processAuthenticated(AuthorizationFilter.java:113)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.doFilter(AuthorizationFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthenticationFilter.doFilter(AuthenticationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-09-26 14:38:27 DEBUG IndexController:28 - Updated item = Item{id=60, name='zebra', price=111000.0}
+2019-09-26 14:38:51 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:38:56 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:39:09 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:39:20 DEBUG IndexController:25 - Item from DB = Item{id=62, name='zebra', price=45.0}
+2019-09-26 14:42:10 ERROR ItemDaoJdbcImpl:82 - Can't add new item
+java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1365)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1378)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setString(ClientPreparedStatement.java:1745)
+	at mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl.update(ItemDaoJdbcImpl.java:76)
+	at mate.academy.internetshop.service.impl.ItemServiceImpl.update(ItemServiceImpl.java:38)
+	at mate.academy.internetshop.controller.IndexController.doGet(IndexController.java:27)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.processAuthenticated(AuthorizationFilter.java:113)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.doFilter(AuthorizationFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthenticationFilter.doFilter(AuthenticationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-09-26 14:42:10 DEBUG IndexController:28 - Updated item = Item{id=62, name='zebra', price=111000.0}
+2019-09-26 14:42:36 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:42:44 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:42:53 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:43:02 DEBUG IndexController:25 - Item from DB = Item{id=63, name='zebra', price=45.0}
+2019-09-26 14:49:51 ERROR ItemDaoJdbcImpl:82 - Can't add new item
+com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'price' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1340)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl.update(ItemDaoJdbcImpl.java:79)
+	at mate.academy.internetshop.service.impl.ItemServiceImpl.update(ItemServiceImpl.java:38)
+	at mate.academy.internetshop.controller.IndexController.doGet(IndexController.java:27)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.processAuthenticated(AuthorizationFilter.java:113)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.doFilter(AuthorizationFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthenticationFilter.doFilter(AuthenticationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-09-26 14:49:51 DEBUG IndexController:28 - Updated item = Item{id=63, name='zebra', price=111000.0}
+2019-09-26 14:50:15 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:50:20 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:50:31 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:50:36 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:50:39 DEBUG IndexController:25 - Item from DB = Item{id=64, name='zebra', price=45.0}
+2019-09-26 14:50:39 DEBUG IndexController:25 - Item from DB = Item{id=65, name='zebra', price=45.0}
+2019-09-26 14:50:40 ERROR ItemDaoJdbcImpl:82 - Can't add new item
+java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1365)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1378)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setString(ClientPreparedStatement.java:1745)
+	at mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl.update(ItemDaoJdbcImpl.java:76)
+	at mate.academy.internetshop.service.impl.ItemServiceImpl.update(ItemServiceImpl.java:38)
+	at mate.academy.internetshop.controller.IndexController.doGet(IndexController.java:27)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.processAuthenticated(AuthorizationFilter.java:113)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.doFilter(AuthorizationFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthenticationFilter.doFilter(AuthenticationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-09-26 14:50:40 ERROR ItemDaoJdbcImpl:82 - Can't add new item
+java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1365)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1378)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setString(ClientPreparedStatement.java:1745)
+	at mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl.update(ItemDaoJdbcImpl.java:76)
+	at mate.academy.internetshop.service.impl.ItemServiceImpl.update(ItemServiceImpl.java:38)
+	at mate.academy.internetshop.controller.IndexController.doGet(IndexController.java:27)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.processAuthenticated(AuthorizationFilter.java:113)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.doFilter(AuthorizationFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthenticationFilter.doFilter(AuthenticationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-09-26 14:50:40 DEBUG IndexController:28 - Updated item = Item{id=64, name='zebra', price=111000.0}
+2019-09-26 14:50:44 DEBUG IndexController:28 - Updated item = Item{id=65, name='zebra', price=111000.0}
+2019-09-26 14:51:16 INFO  InjectInitializer:15 - Dependency injection started...
+2019-09-26 14:51:21 INFO  AuthenticationFilter:49 - User was not authenticated!
+2019-09-26 14:51:30 INFO  AuthenticationFilter:43 - User admin was authenticated!
+2019-09-26 14:51:30 DEBUG IndexController:25 - Item from DB = Item{id=66, name='zebra', price=45.0}
+2019-09-26 14:51:30 ERROR ItemDaoJdbcImpl:82 - Can't add new item
+java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1365)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1378)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setString(ClientPreparedStatement.java:1745)
+	at mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl.update(ItemDaoJdbcImpl.java:76)
+	at mate.academy.internetshop.service.impl.ItemServiceImpl.update(ItemServiceImpl.java:38)
+	at mate.academy.internetshop.controller.IndexController.doGet(IndexController.java:27)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.processAuthenticated(AuthorizationFilter.java:113)
+	at mate.academy.internetshop.web.filters.AuthorizationFilter.doFilter(AuthorizationFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at mate.academy.internetshop.web.filters.AuthenticationFilter.doFilter(AuthenticationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-09-26 14:51:30 DEBUG IndexController:28 - Updated item = Item{id=66, name='zebra', price=111000.0}
