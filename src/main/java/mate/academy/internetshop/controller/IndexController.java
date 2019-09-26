@@ -21,7 +21,9 @@ public class IndexController extends HttpServlet {
         Item item = itemService.create(new Item("zebra", 45.));
         Item itemFromDB = itemService.get(item.getId());
         log.debug("Item from DB = " + item.toString());
-        itemService.update(new Item(42L, "zebra", 96.));
+        itemFromDB.setPrice(111000);
+        Item updatedItem = itemService.update(itemFromDB);
+        log.debug("Updated item = " + updatedItem,toString());
         itemService.delete(42L);
         req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
     }
