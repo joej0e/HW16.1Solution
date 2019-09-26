@@ -25,7 +25,7 @@ public class ItemsController extends HttpServlet {
             throws ServletException, IOException {
         Item item = new Item(req.getParameter("item_name"),
                 Double.parseDouble(req.getParameter("price")));
-        itemService.add(item);
+        itemService.create(item);
         resp.sendRedirect(req.getContextPath() + "/addItems");
     }
 }
