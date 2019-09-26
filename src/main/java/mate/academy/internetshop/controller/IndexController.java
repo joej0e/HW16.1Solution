@@ -19,7 +19,8 @@ public class IndexController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         Item item = itemService.create(new Item("zebra", 45.));
-        itemService.get(42L);
+        Item itemFromDB = itemService.get(item.getId());
+        log.debug("Item from DB = " + item.toString());
         itemService.update(new Item(42L, "zebra", 96.));
         itemService.delete(42L);
         req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
