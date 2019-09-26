@@ -18,7 +18,7 @@ public class IndexController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        itemService.create(new Item("zebra", 45.));
+        Item item = itemService.create(new Item("zebra", 45.));
         itemService.get(42L);
         itemService.update(new Item(42L, "zebra", 96.));
         itemService.delete(42L);
