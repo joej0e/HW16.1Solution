@@ -24,7 +24,7 @@ public class IndexController extends HttpServlet {
         itemFromDB.setPrice(111000);
         Item updatedItem = itemService.update(itemFromDB);
         log.debug("Updated item = " + updatedItem,toString());
-        itemService.delete(42L);
+        itemService.delete(updatedItem.getId());
         req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
     }
 }
