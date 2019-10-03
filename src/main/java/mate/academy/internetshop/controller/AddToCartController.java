@@ -26,7 +26,8 @@ public class AddToCartController extends HttpServlet {
             throws ServletException, IOException {
         Long userId = (Long) req.getSession(true).getAttribute("userId");
         Bucket bucket = bucketService
-                .get(userService.get(userId).getBucketId());
+                .get(userService.get(userId)
+                        .get().getBucketId()).orElseThrow();
         Item item = itemService
                 .get(Long.parseLong(req.getParameter("item_id")));
         bucketService.addItem(bucket, item);

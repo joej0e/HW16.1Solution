@@ -1,6 +1,7 @@
 package mate.academy.internetshop.service.impl;
 
 import mate.academy.internetshop.dao.BucketDao;
+import mate.academy.internetshop.dao.OrderDao;
 import mate.academy.internetshop.dao.UserDao;
 import mate.academy.internetshop.exceptions.AuthenticationException;
 import mate.academy.internetshop.lib.Inject;
@@ -29,17 +30,19 @@ public class UserServiceImpl implements UserService {
     private static UserDao userDao;
     @Inject
     private static BucketDao bucketDao;
+    @Inject
+    private static OrderDao orderDao;
 
     @Override
     public User add(User user) {
         user.setToken(getToken());
         User newUser = userDao.add(user);
-        bucketDao.add(new Bucket(user));
+        bucketDao.create(new Bucket(user.getId()));
         return newUser;
     }
 
     @Override
-    public User get(Long id) {
+    public Optional<User> get(Long id) {
         return userDao.get(id);
     }
 
@@ -55,7 +58,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List getOrders(User user) {
-        return userDao.get(user.getId()).getOrders();
+        return orderDao.getOrdersByUserId(user.getId());
     }
 
     @Override

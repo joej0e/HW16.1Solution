@@ -34,7 +34,7 @@ public class RegisterController extends HttpServlet {
         user.setSurname(req.getParameter("surname"));
         user.setLogin(req.getParameter("login"));
         user.setPassword(req.getParameter("psw"));
-        Bucket bucket = bucketService.add(new Bucket(user));
+        Bucket bucket = bucketService.create(new Bucket(user.getId()));
         user.setBucketId(bucket.getId());
         User newUser = userService.add(user);
 

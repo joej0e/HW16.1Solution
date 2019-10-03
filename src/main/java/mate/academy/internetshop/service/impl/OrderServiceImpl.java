@@ -16,7 +16,6 @@ import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
-
     private static OrderServiceImpl orderService = new OrderServiceImpl();
 
     private OrderServiceImpl() {
@@ -56,12 +55,17 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order completeOrder(List<Item> items, User user) {
         List<Item> itemsCopy = new ArrayList<Item>(items);
-        Order order = new Order(itemsCopy, user);
+        Order order = new Order(itemsCopy, user.getId());
         orderDao.add(order);
-        userDao.get(user.getId()).getOrders().add(order);
-        Bucket bucket = bucketDao.get(user.getBucketId());
+        orderDao.getOrdersByUserId(user.getId()).add(order);
+        Bucket bucket = bucketDao.get(user.getBucketId()).orElseThrow();
         bucket.getItems().clear();
         return order;
+    }
+
+    @Override
+    public List<Order> getAllOrdersForUser(User user) {
+        return orderDao.getOrdersByUserId(user.getId());
     }
 }
 

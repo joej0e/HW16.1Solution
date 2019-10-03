@@ -9,9 +9,15 @@ import mate.academy.internetshop.model.Item;
 import mate.academy.internetshop.service.BucketService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BucketServiceImpl implements BucketService {
+
+    @Inject
+    private static BucketDao bucketDao;
+    @Inject
+    private static ItemDao itemDao;
 
     private static BucketServiceImpl bucketService = new BucketServiceImpl();
 
@@ -22,18 +28,13 @@ public class BucketServiceImpl implements BucketService {
         return bucketService;
     }
 
-    @Inject
-    private static BucketDao bucketDao;
-    @Inject
-    private static ItemDao itemDao;
-
     @Override
-    public Bucket add(Bucket bucket) {
-        return bucketDao.add(bucket);
+    public Bucket create(Bucket bucket) {
+        return bucketDao.create(bucket);
     }
 
     @Override
-    public Bucket get(Long id) {
+    public Optional<Bucket> get(Long id) {
         return bucketDao.get(id);
     }
 
@@ -43,32 +44,23 @@ public class BucketServiceImpl implements BucketService {
     }
 
     @Override
-    public void delete(Long id) {
-        bucketDao.delete(id);
-    }
-
-    @Override
     public Bucket addItem(Bucket bucket, Item item) {
-        Item retrievedItem = itemDao.get(item.getId());
-        bucket.getItems().add(retrievedItem);
-        return bucketDao.update(bucket);
+        return bucketDao.addItem(bucket, item);
     }
 
     @Override
-    public Bucket clear(Bucket bucket) {
-        bucket.getItems().clear();
-        return bucket;
+    public void clear(Long id) {
+        bucketDao.clear(id);
     }
 
     @Override
-    public List<Item> getAllItems(Bucket bucket) {
-        return bucket.getItems();
+    public List<Item> getItems(Long bucketId) {
+        return bucketDao.getItems(bucketId);
     }
 
     @Override
     public void deleteItem(Long bucketId, Item item) {
-        Bucket bucket = bucketDao.get(bucketId);
-        bucket.getItems().remove(item);
+        bucketDao.deleteItem(bucketId, item);
     }
 }
 

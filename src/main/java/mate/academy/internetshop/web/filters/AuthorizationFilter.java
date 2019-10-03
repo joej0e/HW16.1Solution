@@ -4,6 +4,7 @@ package mate.academy.internetshop.web.filters;
 import mate.academy.internetshop.lib.Inject;
 import mate.academy.internetshop.model.Role;
 import mate.academy.internetshop.model.User;
+import mate.academy.internetshop.service.RoleService;
 import mate.academy.internetshop.service.UserService;
 
 import javax.servlet.Filter;
@@ -19,25 +20,26 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-
-import static mate.academy.internetshop.model.Role.RoleName.ADMIN;
-import static mate.academy.internetshop.model.Role.RoleName.USER;
+import java.util.Set;
 
 public class AuthorizationFilter implements Filter {
     private static final String EMPTY_STRING = "";
     @Inject
     private static UserService userService;
-    private Map<String, Role.RoleName> protectedUrls =
-            new HashMap<>();
+    @Inject
+    private static RoleService roleService;
+    private Map<String, Role> protectedUrls = new HashMap<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        protectedUrls.put("/servlet/users", ADMIN);
-        protectedUrls.put("/servlet/showAllOrders", ADMIN);
-        protectedUrls.put("/servlet/deleteUser", ADMIN);
-        protectedUrls.put("/servlet/bucket", USER);
-        protectedUrls.put("/servlet/deleteFromBucket", USER);
-        protectedUrls.put("/servlet/completeOrder", USER);
+        protectedUrls.put("/servlet/users", Role.of("ADMIN"));
+        protectedUrls.put("/servlet/showAllOrders", Role.of("USER"));
+        protectedUrls.put("/servlet/deleteUser", Role.of("ADMIN"));
+        protectedUrls.put("/servlet/bucket", Role.of("USER"));
+        protectedUrls.put("/servlet/deleteFromBucket", Role.of("USER"));
+        protectedUrls.put("/servlet/completeOrder", Role.of("USER"));
+        protectedUrls.put("/user/addToBucket", Role.of("USER"));
+        protectedUrls.put("/user/deleteOrder", Role.of("USER"));
     }
 
     @Override
@@ -56,7 +58,7 @@ public class AuthorizationFilter implements Filter {
 
         String requestedUrl = req.getRequestURI()
                 .replace(req.getContextPath(), EMPTY_STRING);
-        Role.RoleName roleName = protectedUrls.get(requestedUrl);
+        Role roleName = protectedUrls.get(requestedUrl);
         if (roleName == null) {
             processAuthenticated(filterChain, req, resp);
             return;
@@ -76,7 +78,7 @@ public class AuthorizationFilter implements Filter {
         } else {
             Optional<User> user = userService.getByToken(token);
             if (user.isPresent()) {
-                if (varifyRole(user.get(), roleName)) {
+                if (verifyRole(user.get(), roleName)) {
                     processAuthenticated(filterChain, req, resp);
                     return;
                 } else {
@@ -90,10 +92,14 @@ public class AuthorizationFilter implements Filter {
         }
     }
 
-    private boolean varifyRole(User user, Role.RoleName roleName) {
-        return user.getRoles()
-                .stream()
-                .anyMatch(role -> role.getRoleName().equals(roleName));
+    private boolean verifyRole(User user, Role roleName) {
+        Set<Role> roles = roleService.getRoles(user);
+        for (Role role : roles) {
+            if (role.getRoleName().name().equals(roleName.getRoleName().name())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void processDenied(HttpServletRequest req, HttpServletResponse resp)
