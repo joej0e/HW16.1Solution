@@ -122,13 +122,14 @@ public class OrderDaoJdbcImpl extends AbstractDao<Order> implements OrderDao {
                 Long itemId = resultSet.getLong("items.item_id");
                 String name = resultSet.getString("name");
                 Double price = resultSet.getDouble("price");
-                Item item = new Item(name, price);
+                Item item = new Item();
+                item.setName(name);
+                item.setPrice(price);
                 item.setId(itemId);
                 items.add(item);
             }
         } catch (SQLException e) {
-            logger.error("Get items from order error", e);
-            return null;
+            logger.error("Can't get items from order", e);
         }
         return items;
     }
