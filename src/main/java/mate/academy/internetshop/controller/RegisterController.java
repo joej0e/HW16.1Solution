@@ -41,6 +41,7 @@ public class RegisterController extends HttpServlet {
         user.setSalt(salt);
         String hashedPassword = HashUtil.hashPassword(password, salt);
         user.setPassword(hashedPassword);
+
         User newUser = userService.add(user);
         Bucket newBucket = new Bucket();
         newBucket.setUserId(user.getId());

@@ -36,6 +36,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
     @Override
     public User add(User user) {
         String query = "INSERT INTO users "
+
                 + "(name, surname, login, password, token, role, salt) VALUES (?, ?, ?, ?, ?, ?, ?);";
         try (PreparedStatement statement
                      = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
@@ -202,6 +203,5 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
         user.setToken(resultSet.getString("token"));
         return user;
     }
-
 }
 
