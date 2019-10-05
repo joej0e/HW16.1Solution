@@ -1,7 +1,5 @@
 package mate.academy.internetshop.model;
 
-import mate.academy.internetshop.idgenerators.UserIdGenerator;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -49,8 +47,20 @@ public class User {
 
 
     public User() {
-        id = UserIdGenerator.generateId();
         orders = new ArrayList<>();
+    }
+
+    public User(Long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public User(Long userId, String password, String login, String name) {
+        this.id = userId;
+        this.password = password;
+        this.login = login;
+        this.name = name;
     }
 
     public Long getId() {
@@ -64,7 +74,6 @@ public class User {
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
-
 
     public String getName() {
         return name;
@@ -108,6 +117,10 @@ public class User {
                 ", password='" + password + '\'' +
                 ", orders=" + orders +
                 '}';
+    }
+
+    public void setId(Long l) {
+        this.id = l;
     }
 }
 

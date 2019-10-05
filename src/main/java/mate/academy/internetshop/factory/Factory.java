@@ -3,18 +3,22 @@ package mate.academy.internetshop.factory;
 import mate.academy.internetshop.dao.BucketDao;
 import mate.academy.internetshop.dao.ItemDao;
 import mate.academy.internetshop.dao.OrderDao;
+import mate.academy.internetshop.dao.RoleDao;
 import mate.academy.internetshop.dao.UserDao;
-import mate.academy.internetshop.dao.impl.BucketDaoImpl;
-import mate.academy.internetshop.dao.impl.OrderDaoImpl;
-import mate.academy.internetshop.dao.impl.UserDaoImpl;
+import mate.academy.internetshop.dao.jdbc.BucketDaoJdbcImpl;
 import mate.academy.internetshop.dao.jdbc.ItemDaoJdbcImpl;
+import mate.academy.internetshop.dao.jdbc.OrderDaoJdbcImpl;
+import mate.academy.internetshop.dao.jdbc.RoleDaoJdbcImpl;
+import mate.academy.internetshop.dao.jdbc.UserDaoJdbcImpl;
 import mate.academy.internetshop.service.BucketService;
 import mate.academy.internetshop.service.ItemService;
 import mate.academy.internetshop.service.OrderService;
+import mate.academy.internetshop.service.RoleService;
 import mate.academy.internetshop.service.UserService;
 import mate.academy.internetshop.service.impl.BucketServiceImpl;
 import mate.academy.internetshop.service.impl.ItemServiceImpl;
 import mate.academy.internetshop.service.impl.OrderServiceImpl;
+import mate.academy.internetshop.service.impl.RoleServiceImpl;
 import mate.academy.internetshop.service.impl.UserServiceImpl;
 import org.apache.log4j.Logger;
 
@@ -42,15 +46,19 @@ public class Factory {
     }
 
     public static UserDao getUserDao() {
-        return UserDaoImpl.getInstance();
+        return new UserDaoJdbcImpl(connection);
     }
 
     public static OrderDao getOrderDao() {
-        return OrderDaoImpl.getInstance();
+        return new OrderDaoJdbcImpl(connection);
     }
 
     public static BucketDao getBucketDao() {
-        return BucketDaoImpl.getInstance();
+        return new BucketDaoJdbcImpl(connection);
+    }
+
+    public static RoleDao getRoleDao() {
+        return new RoleDaoJdbcImpl(connection);
     }
 
     public static ItemService getItemService() {
@@ -68,5 +76,10 @@ public class Factory {
     public static BucketService getBucketService() {
         return BucketServiceImpl.getInstance();
     }
+
+    public static RoleService getRoleService() {
+        return new RoleServiceImpl();
+    }
+
 }
 

@@ -26,7 +26,7 @@ public class ShoppingController extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
         }
         Long userId = (Long) req.getSession(true).getAttribute("userId");
-        User user = userService.get(userId);
+        User user = userService.get(userId).orElseThrow();
         List<Item> items = itemService.getAll();
         req.setAttribute("user", user);
         req.setAttribute("items", items);

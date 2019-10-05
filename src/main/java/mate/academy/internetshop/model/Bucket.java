@@ -1,23 +1,25 @@
 package mate.academy.internetshop.model;
 
-import mate.academy.internetshop.idgenerators.BucketIdGenerator;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Bucket {
     private Long id;
     private List<Item> items;
-    private User user;
+    private Long userId;
 
-    public Bucket(User user) {
-        this.id = BucketIdGenerator.generateId();
-        items = new ArrayList<>();
-        this.user = user;
+    public Bucket(Long userId) {
+        this.userId = userId;
+    }
+
+    public Bucket() {
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public List<Item> getItems() {
@@ -28,12 +30,12 @@ public class Bucket {
         this.items = items;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -41,7 +43,7 @@ public class Bucket {
         return "Bucket{" +
                 "id=" + id +
                 ", items=" + items +
-                ", user=" + user +
+                ", userId=" + userId +
                 '}';
     }
 }

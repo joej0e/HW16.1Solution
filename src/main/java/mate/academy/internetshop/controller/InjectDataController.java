@@ -23,6 +23,7 @@ public class InjectDataController extends HttpServlet {
         user.addRole(Role.of("USER"));
         user.setLogin("bob");
         user.setPassword("1");
+        user.setId(0L);
         userService.add(user);
 
         User admin = new User();

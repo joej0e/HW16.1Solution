@@ -26,14 +26,14 @@ public class CompleteOrderController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         Bucket bucket = bucketService.get(Long.parseLong(
-                req.getParameter("bucket_id")));
+                req.getParameter("bucket_id"))).orElseThrow();
         if (bucket.getItems().size() != 0) {
             Long userId = (Long) req.getSession(true).getAttribute("userId");
-            User user = userService.get(userId);
-            Order order = new Order(bucket.getItems(), user);
+            User user = userService.get(userId).orElseThrow();
+            Order order = new Order(bucket.getItems(), user.getId());
             orderService.add(order);
             user.getOrders().add(order);
-            bucketService.clear(bucket);
+            bucketService.clear(bucket.getId());
         }
         resp.sendRedirect(req.getContextPath() + "/servlet/showAllOrders");
     }
