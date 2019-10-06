@@ -11,8 +11,6 @@ public interface UserDao {
 
     Optional<User> get(Long id);
 
-    byte[] getSalt(User user);
-
     User update(User user);
 
     void delete(Long id);

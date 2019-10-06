@@ -36,7 +36,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
     @Override
     public User add(User user) {
         String query = "INSERT INTO users "
-                + "(name, surname, login, password, token, role, salt) VALUES (?, ?, ?, ?, ?, ?, ?);";
+                + "(name, surname, login, password, token, salt) VALUES (?, ?, ?, ?, ?, ?);";
         try (PreparedStatement statement
                      = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, user.getName());
@@ -44,9 +44,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
             statement.setString(3, user.getLogin());
             statement.setString(4, user.getPassword());
             statement.setString(5, user.getToken());
-            statement.setBytes(7, user.getSalt());
-            statement.setString(6, user.getRoles()
-                    .stream().findFirst().get().getRoleName().toString());
+            statement.setBytes(6, user.getSalt());
             statement.executeUpdate();
             ResultSet keys = statement.getGeneratedKeys();
             if (keys.next()) {
@@ -176,21 +174,6 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
             logger.error("Getting by token error", e);
         }
         return Optional.ofNullable(user);
-    }
-
-    public byte[] getSalt(User user) {
-        String query = "SELECT users.salt FROM users WHERE user_id=?";
-        byte[] salt = null;
-        try (PreparedStatement getSaltStmt = connection.prepareStatement(query)) {
-            getSaltStmt.setLong(1, user.getId());
-            ResultSet rs = getSaltStmt.executeQuery();
-            if (rs.next()) {
-                salt = rs.getBytes("salt");
-            }
-        } catch (SQLException e) {
-            logger.error("Can't get salt", e);
-        }
-        return salt;
     }
 
     private User buildUser(ResultSet resultSet) throws SQLException {

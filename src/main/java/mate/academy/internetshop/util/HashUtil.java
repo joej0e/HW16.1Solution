@@ -32,11 +32,5 @@ public class HashUtil {
         }
         return hashedPassword.toString();
     }
-
-    public static boolean checkUser(String password, String passwordToCheck) {
-        return passwordToCheck.equals(password);
-    }
 }
-
-
 
