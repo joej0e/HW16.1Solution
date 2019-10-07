@@ -27,7 +27,7 @@ public class IndexController extends HttpServlet {
     private static BucketService bucketService;
     @Inject
     private static RoleDao roleDao;
-    Logger logger = Logger.getLogger(IndexController.class);
+    private Logger logger = Logger.getLogger(IndexController.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
