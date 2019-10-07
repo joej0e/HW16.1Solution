@@ -2,9 +2,11 @@ package mate.academy.internetshop.controller;
 
 import mate.academy.internetshop.lib.Inject;
 import mate.academy.internetshop.model.Bucket;
+import mate.academy.internetshop.model.Role;
 import mate.academy.internetshop.model.User;
 import mate.academy.internetshop.service.BucketService;
 import mate.academy.internetshop.service.UserService;
+import mate.academy.internetshop.util.HashUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -33,15 +35,19 @@ public class RegisterController extends HttpServlet {
         user.setName(req.getParameter("name"));
         user.setSurname(req.getParameter("surname"));
         user.setLogin(req.getParameter("login"));
-        user.setPassword(req.getParameter("psw"));
-        Bucket bucket = bucketService.create(new Bucket(user.getId()));
-        user.setBucketId(bucket.getId());
+        String password = req.getParameter("psw");
+        user.addRole(Role.of("USER"));
+        byte[] salt = HashUtil.getSalt();
+        user.setSalt(salt);
+        String hashedPassword = HashUtil.hashPassword(password, salt);
+        user.setPassword(hashedPassword);
         User newUser = userService.add(user);
-
-
+        Bucket newBucket = new Bucket();
+        newBucket.setUserId(user.getId());
+        Bucket bucket = bucketService.create(newBucket);
+        user.setBucketId(bucket.getId());
         HttpSession session = req.getSession();
         session.setAttribute("userId", user.getId());
-
         Cookie cookie = new Cookie("MATE", newUser.getToken());
         resp.addCookie(cookie);
         resp.sendRedirect(req.getContextPath() + "/shop");

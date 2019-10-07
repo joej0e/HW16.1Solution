@@ -88,7 +88,7 @@ public class OrderDaoJdbcImpl extends AbstractDao<Order> implements OrderDao {
     @Override
     public Order update(Order order) {
         String addOrderQuery = "UPDATE orders set user_id WHERE order_id =?;";
-        String addItemsQuery = "UPDATE orders_items SET item_id = ? WHERE order_id=?);";
+        String addItemsQuery = "UPDATE orders_items SET item_id = ? WHERE order_id=?;";
         try (PreparedStatement addOrderStmt = connection.prepareStatement(
                 addOrderQuery, Statement.RETURN_GENERATED_KEYS);
              PreparedStatement addItemsStmt = connection.prepareStatement(addItemsQuery)) {

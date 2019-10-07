@@ -8,6 +8,7 @@ import mate.academy.internetshop.lib.Dao;
 import mate.academy.internetshop.lib.Inject;
 import mate.academy.internetshop.model.Bucket;
 import mate.academy.internetshop.model.User;
+import mate.academy.internetshop.util.HashUtil;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -35,7 +36,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
     @Override
     public User add(User user) {
         String query = "INSERT INTO users "
-                + "(name, surname, login, password, token) VALUES (?, ?, ?, ?, ?);";
+                + "(name, surname, login, password, token, salt) VALUES (?, ?, ?, ?, ?, ?);";
         try (PreparedStatement statement
                      = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, user.getName());
@@ -43,6 +44,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
             statement.setString(3, user.getLogin());
             statement.setString(4, user.getPassword());
             statement.setString(5, user.getToken());
+            statement.setBytes(6, user.getSalt());
             statement.executeUpdate();
             ResultSet keys = statement.getGeneratedKeys();
             if (keys.next()) {
@@ -123,13 +125,14 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
         User user = null;
         String query = "SELECT * FROM users WHERE login = ? AND password = ?;";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
+            byte[] salt = getSaltByLogin(login);
+            String passwordToVerify = HashUtil.hashPassword(password, salt);
             statement.setString(1, login);
-            statement.setString(2, password);
+            statement.setString(2, passwordToVerify);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 user = buildUser(resultSet);
-                Bucket bucket = bucketDao
-                        .get(user.getBucketId()).orElseThrow();
+                Bucket bucket = bucketDao.geByUserId(user.getId());
                 user.setBucketId(bucket.getId());
             } else {
                 throw new AuthenticationException("Incorrect login or password");
@@ -140,6 +143,20 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
         return user;
     }
 
+    private byte[] getSaltByLogin(String login) {
+        String query = "SELECT users.salt FROM users WHERE login = ?";
+        byte[] salt = null;
+        try (PreparedStatement getUserIdStmt = connection.prepareStatement(query)) {
+            getUserIdStmt.setString(1, login);
+            ResultSet rs = getUserIdStmt.executeQuery();
+            if (rs.next()) {
+                salt = rs.getBytes("salt");
+            }
+        } catch (SQLException e) {
+            logger.error("Can't get user_id by login = " + login, e);
+        }
+        return salt;
+    }
     @Override
     public Optional<User> getByToken(String token) {
         String query = "SELECT * FROM users WHERE token = ?;";
@@ -168,5 +185,6 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
         user.setToken(resultSet.getString("token"));
         return user;
     }
+
 }
 

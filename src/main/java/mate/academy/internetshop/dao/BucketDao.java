@@ -16,6 +16,8 @@ public interface BucketDao {
 
     Optional<Bucket> get(Long id);
 
+    Bucket geByUserId(Long id);
+
     Bucket update(Bucket bucket);
 
     void clear(Long id);
