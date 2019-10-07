@@ -2,12 +2,12 @@ package mate.academy.internetshop.controller;
 
 import mate.academy.internetshop.dao.RoleDao;
 import mate.academy.internetshop.lib.Inject;
-import mate.academy.internetshop.model.Role;
-import mate.academy.internetshop.model.User;
+import mate.academy.internetshop.model.Item;
 import mate.academy.internetshop.service.BucketService;
 import mate.academy.internetshop.service.ItemService;
 import mate.academy.internetshop.service.OrderService;
 import mate.academy.internetshop.service.UserService;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,14 +27,13 @@ public class IndexController extends HttpServlet {
     private static BucketService bucketService;
     @Inject
     private static RoleDao roleDao;
+    private Logger logger = Logger.getLogger(IndexController.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        User user = new User();
-        user.addRole(Role.of("ADMIN"));
-        user.setId(6L);
-        roleDao.addRole(user);
+        Item item = itemService.get(1L);
+        logger.info(item);
         req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
     }
 }

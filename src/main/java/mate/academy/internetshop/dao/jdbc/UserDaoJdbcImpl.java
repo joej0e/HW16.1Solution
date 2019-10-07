@@ -166,8 +166,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 user = buildUser(resultSet);
-                Bucket bucket = bucketDao
-                        .get(user.getBucketId()).orElseThrow();
+                Bucket bucket = bucketDao.geByUserId(user.getId());
                 user.setBucketId(bucket.getId());
             }
         } catch (SQLException e) {
@@ -185,6 +184,5 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
         user.setToken(resultSet.getString("token"));
         return user;
     }
-
 }
 
