@@ -22,15 +22,15 @@ public class RoleDaoJdbcImpl extends AbstractDao<Role> implements RoleDao {
         super(connection);
     }
 
-    @Override
+    // @Override
     public void addRole(User user) {
-        String role = user.getRoles().stream().findFirst().get().getRoleName().toString();
+        //  String role = user.getRoles().stream().findFirst().get().getRoleName().toString();
         Long userId = user.getId();
         String getRoleIdQuery = "SELECT * FROM roles WHERE role_name = ?;";
         String addRoleQuery = "INSERT INTO users_roles (user_id, role_id) VALUES (?, ?);";
         try (PreparedStatement getRoleIdStmt = connection.prepareStatement(getRoleIdQuery);
              PreparedStatement addRoleStmt = connection.prepareStatement(addRoleQuery)) {
-            getRoleIdStmt.setString(1, role);
+            // getRoleIdStmt.setString(1, role);
             ResultSet resultSet = getRoleIdStmt.executeQuery();
             Long roleId = null;
             if (resultSet.next()) {
@@ -44,7 +44,7 @@ public class RoleDaoJdbcImpl extends AbstractDao<Role> implements RoleDao {
         }
     }
 
-    @Override
+    // @Override
     public Set<Role> getRoles(User user) {
         Set<Role> roles = new HashSet<>();
         String query = "SELECT roles.role_name "
@@ -64,6 +64,32 @@ public class RoleDaoJdbcImpl extends AbstractDao<Role> implements RoleDao {
             logger.error("Can't get roles", e);
         }
         return roles;
+    }
+
+    @Override
+    public User addUserRole(Long roleId, Long userId) {
+        return null;
+    }
+
+    @Override
+    public Role addNewRole(Role role) {
+        return null;
+    }
+
+
+    @Override
+    public Set<Role> getRoles(Long userId) {
+        return null;
+    }
+
+    @Override
+    public void delete(Long roleId) {
+
+    }
+
+    @Override
+    public Role get(Long id) {
+        return null;
     }
 }
 

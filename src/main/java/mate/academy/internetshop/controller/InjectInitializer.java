@@ -19,5 +19,10 @@ public class InjectInitializer implements ServletContextListener {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+
+    }
 }
 

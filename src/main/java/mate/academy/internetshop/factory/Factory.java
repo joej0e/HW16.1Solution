@@ -5,11 +5,11 @@ import mate.academy.internetshop.dao.ItemDao;
 import mate.academy.internetshop.dao.OrderDao;
 import mate.academy.internetshop.dao.RoleDao;
 import mate.academy.internetshop.dao.UserDao;
+import mate.academy.internetshop.dao.hibernate.BucketDaoHibernateImpl;
 import mate.academy.internetshop.dao.hibernate.ItemDaoHibernateImpl;
-import mate.academy.internetshop.dao.jdbc.BucketDaoJdbcImpl;
-import mate.academy.internetshop.dao.jdbc.OrderDaoJdbcImpl;
-import mate.academy.internetshop.dao.jdbc.RoleDaoJdbcImpl;
-import mate.academy.internetshop.dao.jdbc.UserDaoJdbcImpl;
+import mate.academy.internetshop.dao.hibernate.OrderDaoHibernateImpl;
+import mate.academy.internetshop.dao.hibernate.RoleDaoHibernateImpl;
+import mate.academy.internetshop.dao.hibernate.UserDaoHibernateImpl;
 import mate.academy.internetshop.service.BucketService;
 import mate.academy.internetshop.service.ItemService;
 import mate.academy.internetshop.service.OrderService;
@@ -30,6 +30,7 @@ public class Factory {
 
     private static Logger logger = Logger.getLogger(Factory.class);
     private static Connection connection;
+    public static RoleDaoHibernateImpl roleDao = null;
 
     static {
         try {
@@ -46,19 +47,22 @@ public class Factory {
     }
 
     public static UserDao getUserDao() {
-        return new UserDaoJdbcImpl(connection);
+        return new UserDaoHibernateImpl();
     }
 
     public static OrderDao getOrderDao() {
-        return new OrderDaoJdbcImpl(connection);
+        return new OrderDaoHibernateImpl();
     }
 
     public static BucketDao getBucketDao() {
-        return new BucketDaoJdbcImpl(connection);
+        return new BucketDaoHibernateImpl();
     }
 
     public static RoleDao getRoleDao() {
-        return new RoleDaoJdbcImpl(connection);
+        if (roleDao == null) {
+            roleDao = new RoleDaoHibernateImpl();
+        }
+        return roleDao;
     }
 
     public static ItemService getItemService() {

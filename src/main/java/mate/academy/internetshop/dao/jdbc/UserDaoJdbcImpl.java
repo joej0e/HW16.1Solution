@@ -34,7 +34,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public User add(User user) {
+    public User create(User user) {
         String query = "INSERT INTO users "
                 + "(name, surname, login, password, token, salt) VALUES (?, ?, ?, ?, ?, ?);";
         try (PreparedStatement statement
@@ -50,7 +50,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
             if (keys.next()) {
                 user.setId(keys.getLong(1));
             }
-            roleDao.addRole(user);
+            //roleDao.addRole(user);
         } catch (SQLException e) {
             logger.error("Can't create user", e);
         }
@@ -103,7 +103,6 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
         }
     }
 
-    @Override
     public List<User> getAll() {
         List<User> users = new ArrayList<>();
         String query = "SELECT * FROM users";
@@ -132,7 +131,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 user = buildUser(resultSet);
-                Bucket bucket = bucketDao.geByUserId(user.getId());
+                Bucket bucket = bucketDao.getByUserId(user.getId());
                 user.setBucketId(bucket.getId());
             } else {
                 throw new AuthenticationException("Incorrect login or password");
@@ -158,7 +157,7 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
         return salt;
     }
     @Override
-    public Optional<User> getByToken(String token) {
+    public User getByToken(String token) {
         String query = "SELECT * FROM users WHERE token = ?;";
         User user = null;
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -166,13 +165,13 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 user = buildUser(resultSet);
-                Bucket bucket = bucketDao.geByUserId(user.getId());
+                Bucket bucket = bucketDao.getByUserId(user.getId());
                 user.setBucketId(bucket.getId());
             }
         } catch (SQLException e) {
             logger.error("Getting by token error", e);
         }
-        return Optional.ofNullable(user);
+        return user;
     }
 
     private User buildUser(ResultSet resultSet) throws SQLException {

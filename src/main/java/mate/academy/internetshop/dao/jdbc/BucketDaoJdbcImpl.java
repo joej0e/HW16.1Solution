@@ -6,6 +6,7 @@ import mate.academy.internetshop.lib.Dao;
 import mate.academy.internetshop.lib.Inject;
 import mate.academy.internetshop.model.Bucket;
 import mate.academy.internetshop.model.Item;
+import mate.academy.internetshop.model.User;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -28,13 +29,20 @@ public class BucketDaoJdbcImpl extends AbstractDao<Bucket> implements BucketDao 
         super(connection);
     }
 
-    @Override
-    public Bucket create(Bucket bucket) {
+    public Bucket addItem(Long bucketId, Long itemId) {
+        return null;
+    }
+
+    public void deleteItem(Long bucketId, Long itemId) {
+
+    }
+
+    public Bucket create(User bucket) {
         String query = "INSERT INTO buckets (user_id) VALUES (?);";
         try (PreparedStatement statement
                      = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            Long userId = bucket.getUserId();
-            statement.setLong(1, userId);
+            //Long userId = bucket.getUserId();
+            //statement.setLong(1, userId);
             statement.executeUpdate();
             ResultSet keys = statement.getGeneratedKeys();
             if (keys.next()) {
@@ -43,7 +51,8 @@ public class BucketDaoJdbcImpl extends AbstractDao<Bucket> implements BucketDao 
         } catch (SQLException e) {
             logger.error("Can't create bucket", e);
         }
-        return bucket;
+        //  return bucket;
+        return null;
     }
 
     @Override
@@ -87,7 +96,7 @@ public class BucketDaoJdbcImpl extends AbstractDao<Bucket> implements BucketDao 
     }
 
     @Override
-    public Bucket geByUserId(Long id) {
+    public Bucket getByUserId(Long id) {
         String query = "SELECT * FROM buckets WHERE user_id = ?;";
         Bucket bucket = null;
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -108,7 +117,6 @@ public class BucketDaoJdbcImpl extends AbstractDao<Bucket> implements BucketDao 
         return bucket;
     }
 
-    @Override
     public Bucket addItem(Bucket bucket, Item item) {
         String query = "INSERT INTO buckets_items (bucket_id, item_id) VALUES (?, ?);";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -132,7 +140,6 @@ public class BucketDaoJdbcImpl extends AbstractDao<Bucket> implements BucketDao 
         }
     }
 
-    @Override
     public void deleteItem(Long bucketId, Item item) {
         String query = "DELETE FROM buckets_items WHERE bucket_id = ? AND item_id = ?;";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -144,7 +151,6 @@ public class BucketDaoJdbcImpl extends AbstractDao<Bucket> implements BucketDao 
         }
     }
 
-    @Override
     public List<Item> getItems(Long bucketId) {
         List<Item> items = new ArrayList<>();
         String query = "SELECT * "

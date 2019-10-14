@@ -28,7 +28,7 @@ public class OrderDaoJdbcImpl extends AbstractDao<Order> implements OrderDao {
     }
 
     @Override
-    public Order add(Order order) {
+    public Order create(Order order) {
         String addOrderQuery = "INSERT INTO orders (user_id) VALUES (?);";
         String addItemsQuery = "INSERT INTO orders_items (order_id, item_id) VALUES (?, ?);";
         try (PreparedStatement addOrderStmt = connection.prepareStatement(
@@ -108,7 +108,6 @@ public class OrderDaoJdbcImpl extends AbstractDao<Order> implements OrderDao {
         return order;
     }
 
-    @Override
     public List<Item> getItems(Long orderId) {
         List<Item> items = new ArrayList<>();
         String query = "SELECT items.item_id, name, price "

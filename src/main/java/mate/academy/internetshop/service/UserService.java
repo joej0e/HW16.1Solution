@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
-    User add(User user);
+    User create(User user);
 
     Optional<User> get(Long id);
 
@@ -17,8 +17,6 @@ public interface UserService {
     void delete(Long id);
 
     List<Order> getOrders(User user);
-
-    List<User> getAll();
 
     Optional<User> getByToken(String token);
 
