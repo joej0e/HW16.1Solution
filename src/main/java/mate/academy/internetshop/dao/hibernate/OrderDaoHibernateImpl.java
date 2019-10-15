@@ -72,7 +72,6 @@ public class OrderDaoHibernateImpl implements OrderDao {
     public void delete(Long id) {
         Transaction transaction = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
-        ;
         try {
             transaction = session.beginTransaction();
             Order order = get(id);

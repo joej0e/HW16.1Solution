@@ -50,7 +50,6 @@ public class UserDaoJdbcImpl extends AbstractDao<User> implements UserDao {
             if (keys.next()) {
                 user.setId(keys.getLong(1));
             }
-            //roleDao.addRole(user);
         } catch (SQLException e) {
             logger.error("Can't create user", e);
         }

@@ -59,7 +59,6 @@ public class BucketDaoHibernateImpl implements BucketDao {
         }
     }
 
-
     @Override
     public Optional<Bucket> get(Long bucketId) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

@@ -37,12 +37,13 @@ public class BucketDaoJdbcImpl extends AbstractDao<Bucket> implements BucketDao 
 
     }
 
-    public Bucket create(User bucket) {
+    public Bucket create(User user) {
         String query = "INSERT INTO buckets (user_id) VALUES (?);";
+        Bucket bucket = new Bucket();
         try (PreparedStatement statement
                      = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            //Long userId = bucket.getUserId();
-            //statement.setLong(1, userId);
+            Long userId = user.getId();
+            statement.setLong(1, userId);
             statement.executeUpdate();
             ResultSet keys = statement.getGeneratedKeys();
             if (keys.next()) {
@@ -51,8 +52,7 @@ public class BucketDaoJdbcImpl extends AbstractDao<Bucket> implements BucketDao 
         } catch (SQLException e) {
             logger.error("Can't create bucket", e);
         }
-        //  return bucket;
-        return null;
+        return bucket;
     }
 
     @Override

@@ -98,6 +98,5 @@ public class RoleDaoHibernateImpl implements RoleDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         return session.get(User.class, userId).getRoles();
     }
-
 }
 
