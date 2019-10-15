@@ -2,7 +2,6 @@ package mate.academy.internetshop.service.impl;
 
 import mate.academy.internetshop.dao.BucketDao;
 import mate.academy.internetshop.dao.OrderDao;
-import mate.academy.internetshop.dao.UserDao;
 import mate.academy.internetshop.lib.Inject;
 import mate.academy.internetshop.lib.Service;
 import mate.academy.internetshop.model.Bucket;
@@ -28,13 +27,11 @@ public class OrderServiceImpl implements OrderService {
     @Inject
     private static OrderDao orderDao;
     @Inject
-    private static UserDao userDao;
-    @Inject
     private static BucketDao bucketDao;
 
     @Override
     public Order add(Order order) {
-        return orderDao.add(order);
+        return orderDao.create(order);
     }
 
     @Override
@@ -56,9 +53,9 @@ public class OrderServiceImpl implements OrderService {
     public Order completeOrder(List<Item> items, User user) {
         List<Item> itemsCopy = new ArrayList<Item>(items);
         Order order = new Order(itemsCopy, user.getId());
-        orderDao.add(order);
+        orderDao.create(order);
         orderDao.getOrdersByUserId(user.getId()).add(order);
-        Bucket bucket = bucketDao.get(user.getBucketId()).orElseThrow();
+        Bucket bucket = bucketDao.get(user.getId()).orElseThrow();
         bucket.getItems().clear();
         return order;
     }

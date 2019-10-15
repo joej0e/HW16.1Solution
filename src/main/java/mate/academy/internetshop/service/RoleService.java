@@ -7,8 +7,12 @@ import java.util.Set;
 
 public interface RoleService {
 
-    void addRole(User user);
+    Role addNewRole(Role role);
+
+    User addUserRole(Long userId, Long RoleId);
 
     Set<Role> getRoles(User user);
+
+    void delete(Long roleId);
 }
 

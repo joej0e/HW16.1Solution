@@ -1,15 +1,12 @@
 package mate.academy.internetshop.dao;
 
-import mate.academy.internetshop.model.Item;
 import mate.academy.internetshop.model.Order;
 
 import java.util.List;
 
 public interface OrderDao {
 
-    List<Item> getItems(Long orderId);
-
-    Order add(Order order);
+    Order create(Order order);
 
     Order get(Long id);
 

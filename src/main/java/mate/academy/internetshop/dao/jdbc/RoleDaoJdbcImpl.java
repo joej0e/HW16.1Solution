@@ -22,7 +22,6 @@ public class RoleDaoJdbcImpl extends AbstractDao<Role> implements RoleDao {
         super(connection);
     }
 
-    @Override
     public void addRole(User user) {
         String role = user.getRoles().stream().findFirst().get().getRoleName().toString();
         Long userId = user.getId();
@@ -44,7 +43,6 @@ public class RoleDaoJdbcImpl extends AbstractDao<Role> implements RoleDao {
         }
     }
 
-    @Override
     public Set<Role> getRoles(User user) {
         Set<Role> roles = new HashSet<>();
         String query = "SELECT roles.role_name "
@@ -64,6 +62,36 @@ public class RoleDaoJdbcImpl extends AbstractDao<Role> implements RoleDao {
             logger.error("Can't get roles", e);
         }
         return roles;
+    }
+
+    @Override
+    public User addUserRole(Long roleId, Long userId) {
+        logger.info("HibernateImpl method");
+        return null;
+    }
+
+    @Override
+    public Role addNewRole(Role role) {
+        logger.info("HibernateImpl method");
+        return null;
+    }
+
+
+    @Override
+    public Set<Role> getRoles(Long userId) {
+        logger.info("HibernateImpl method");
+        return null;
+    }
+
+    @Override
+    public void delete(Long roleId) {
+        logger.info("HibernateImpl method");
+    }
+
+    @Override
+    public Role get(Long id) {
+        logger.info("HibernateImpl method");
+        return null;
     }
 }
 

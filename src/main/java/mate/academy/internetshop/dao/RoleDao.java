@@ -7,8 +7,14 @@ import java.util.Set;
 
 public interface RoleDao {
 
-    void addRole(User user);
+    User addUserRole(Long roleId, Long userId);
 
-    Set<Role> getRoles(User user);
+    Role addNewRole(Role role);
+
+    Set<Role> getRoles(Long userId);
+
+    void delete(Long roleId);
+
+    Role get(Long id);
 }
 

@@ -15,13 +15,23 @@ public class RoleServiceImpl implements RoleService {
     private static RoleDao roleDao;
 
     @Override
-    public void addRole(User user) {
-        roleDao.addRole(user);
+    public User addUserRole(Long roleId, Long userId) {
+        return roleDao.addUserRole(roleId, userId);
+    }
+
+    @Override
+    public Role addNewRole(Role role) {
+        return roleDao.addNewRole(role);
     }
 
     @Override
     public Set<Role> getRoles(User user) {
-        return roleDao.getRoles(user);
+        return user.getRoles();
+    }
+
+    @Override
+    public void delete(Long roleId) {
+        roleDao.delete(roleId);
     }
 }
 

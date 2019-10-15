@@ -16,7 +16,12 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id", columnDefinition = "INT")
     private Long id;
+
     private String name;
+
+    @Column(name = "quantity")
+    private Integer quantity;
+
     @Column(name = "price", columnDefinition = "DECIMAL")
     private Double price;
 
@@ -32,6 +37,14 @@ public class Item {
     }
 
     public Long getId() { return id; }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
     public void setName(String name) {
         this.name = name;
