@@ -26,10 +26,11 @@ consolidate knowledge of Hibernate Framework and jdbc.
 * Servlet 4.0.1
 * Hibernate 5.4.5
 * MySQL database
+* log4j
 
 ## Launch
 1. Clone or download the project from github.com
-2. Add to IDE as maven project
+2. Add to IntelliJ IDEA as maven project
 3. Add tomcat configuration
 4. Add artifact internetshop:war exploded
 5. Run all queries from init_db.sql file
